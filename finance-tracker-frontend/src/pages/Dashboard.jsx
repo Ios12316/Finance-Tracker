@@ -60,7 +60,7 @@ export default function Dashboard() {
   const filteredTransactions = transactions.filter((t) => {
     if (selectedMonth === "all") return true;
     const d = new Date(t.date);
-    return d.getUTCMonth() === selectedMonth && d.getUTCFullYear() === selectedYear;
+    return d.getMonth() === selectedMonth && d.getFullYear() === selectedYear;
   });
 
   // Calculate all-time summaries for Current Balance
@@ -69,7 +69,7 @@ export default function Dashboard() {
       const amt = Number(t.amount) || 0;
       if (t.type === "income") {
         acc.income += amt;
-      } else {
+      } else if (t.type === "expense") {
         acc.expense += amt;
       }
       return acc;
@@ -84,7 +84,7 @@ export default function Dashboard() {
       const amt = Number(t.amount) || 0;
       if (t.type === "income") {
         acc.income += amt;
-      } else {
+      } else if (t.type === "expense") {
         acc.expense += amt;
       }
       return acc;
