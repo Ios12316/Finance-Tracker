@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotificationContainer from "./components/NotificationContainer";
 
@@ -32,6 +33,9 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
+      {/* Global Footer */}
+      <Footer />
 
       {/* Custom Global Notification Portal */}
       <NotificationContainer />

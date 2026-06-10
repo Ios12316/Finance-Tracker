@@ -196,16 +196,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      {/* Footer */}
-      <footer className="py-12 px-6 text-center text-xs text-slate-400 dark:text-slate-500 border-t border-slate-100 dark:border-slate-900 space-y-3">
-        <p className="max-w-md mx-auto leading-relaxed">
-          IOS Ledger is a financial management platform developed and maintained by IOS Continental Ltd.
-        </p>
-        <p>
-          &copy; 2026 IOS Continental Ltd. All Rights Reserved.
-        </p>
-      </footer>
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Sun, Moon, Menu, X, Wallet, LogOut, LayoutDashboard, UserPlus, LogIn, Home } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useNotificationStore } from "../store/useNotificationStore";
@@ -65,28 +65,28 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-blue-500/10 group-hover:scale-105 transition-transform duration-200">
               <Wallet className="w-5 h-5" />
             </div>
             <span className="font-extrabold text-lg tracking-tight bg-gradient-to-r from-slate-900 to-blue-950 dark:from-white dark:to-slate-200 bg-clip-text text-transparent">
               IOS Ledger
             </span>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2">
-            <Link to="/" className={linkClass("/")}>
+            <a href="/" className={linkClass("/")}>
               <Home className="w-4 h-4" />
               Home
-            </Link>
+            </a>
 
             {user ? (
               <>
-                <Link to="/dashboard" className={linkClass("/dashboard")}>
+                <a href="/dashboard" className={linkClass("/dashboard")}>
                   <LayoutDashboard className="w-4 h-4" />
                   Dashboard
-                </Link>
+                </a>
                 <button
                   onClick={handleLogout}
                   className="flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-sm font-semibold text-rose-600 hover:bg-rose-50 dark:text-rose-400 dark:hover:bg-rose-950/30 transition-all duration-200"
@@ -97,14 +97,14 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link to="/login" className={linkClass("/login")}>
+                <a href="/login" className={linkClass("/login")}>
                   <LogIn className="w-4 h-4" />
                   Login
-                </Link>
-                <Link to="/register" className={linkClass("/register")}>
+                </a>
+                <a href="/register" className={linkClass("/register")}>
                   <UserPlus className="w-4 h-4" />
                   Register
-                </Link>
+                </a>
               </>
             )}
 
@@ -145,25 +145,25 @@ export default function Navbar() {
       {/* Mobile Drawer */}
       {isOpen && (
         <div className="md:hidden border-t border-slate-200/60 dark:border-slate-800/60 bg-white dark:bg-slate-900 px-4 pt-3 pb-4 space-y-1 shadow-inner">
-          <Link
-            to="/"
+          <a
+            href="/"
             onClick={() => setIsOpen(false)}
             className={mobileLinkClass("/")}
           >
             <Home className="w-4.5 h-4.5" />
             Home
-          </Link>
+          </a>
 
           {user ? (
             <>
-              <Link
-                to="/dashboard"
+              <a
+                href="/dashboard"
                 onClick={() => setIsOpen(false)}
                 className={mobileLinkClass("/dashboard")}
               >
                 <LayoutDashboard className="w-4.5 h-4.5" />
                 Dashboard
-              </Link>
+              </a>
               <button
                 onClick={() => {
                   setIsOpen(false);
@@ -177,22 +177,22 @@ export default function Navbar() {
             </>
           ) : (
             <>
-              <Link
-                to="/login"
+              <a
+                href="/login"
                 onClick={() => setIsOpen(false)}
                 className={mobileLinkClass("/login")}
               >
                 <LogIn className="w-4.5 h-4.5" />
                 Login
-              </Link>
-              <Link
-                to="/register"
+              </a>
+              <a
+                href="/register"
                 onClick={() => setIsOpen(false)}
                 className={mobileLinkClass("/register")}
               >
                 <UserPlus className="w-4.5 h-4.5" />
                 Register
-              </Link>
+              </a>
             </>
           )}
         </div>
