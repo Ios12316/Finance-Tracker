@@ -28,7 +28,7 @@ export default function NotificationContainer() {
   const { notifications, dismissNotification } = useNotificationStore();
 
   return (
-    <div className="fixed top-5 right-5 z-[9999] flex flex-col gap-3 w-full max-w-sm pointer-events-none">
+    <div className="fixed top-5 left-1/2 -translate-x-1/2 md:left-auto md:right-5 md:translate-x-0 z-[9999] flex flex-col gap-3 w-[calc(100%-2rem)] md:w-full md:max-w-sm pointer-events-none">
       <AnimatePresence>
         {notifications.map((toast) => (
           <motion.div
