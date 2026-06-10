@@ -4,8 +4,11 @@ import User from "../models/User.js";
 const authMiddleware = async (req, res, next) =>{
     try {
         const secretKey = process.env.JWT_SECRET;
-        const token = req.cookies.token;
-        if(!token) {
+        let token = req.cookies?.token;
+        if (!token && req.headers.authorization && req.headers.authorization.startsWith("Bearer")) {
+            token = req.headers.authorization.split(" ")[1];
+        }
+        if(!token || token === "undefined") {
             return res.status(401).json({ message: "Unauthorized"});
         }
         const decoded = jwt.verify(token, secretKey);

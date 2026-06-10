@@ -25,7 +25,7 @@ export const registerUser = async (req, res) => {
             sameSite: "lax",
             maxAge: 24 * 60 * 60 * 1000
         });
-        res.status(201).json({ message: "User registered successfully", user: {
+        res.status(201).json({ message: "User registered successfully", token, user: {
             _id: user._id,
             name: user.name,
             email: user.email
@@ -57,7 +57,7 @@ export const loginUser = async (req, res) => {
             sameSite: "lax",
             maxAge: 24 * 60 * 60 * 1000
         });
-        res.status(200).json({ message: "Login successful", user: {
+        res.status(200).json({ message: "Login successful", token, user: {
             _id: user._id,
             name: user.name,
             email: user.email

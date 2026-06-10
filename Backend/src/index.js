@@ -22,7 +22,7 @@ app.use("/api/user", authRoutes);
 app.use("/api/transactions", transactionRoutes);
 
 app.get("/", (req, res) => {
-    res.send("Finance Tracker API is running...");
+    res.send("IOS Ledger API is running...");
 });
 
 const PORT = process.env.PORT || 5000;
