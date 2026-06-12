@@ -89,11 +89,19 @@ export default function Login() {
 
           {/* Password Input */}
           <div className="space-y-1">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-              Password
-            </label>
+            <div className="flex justify-between items-center">
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                Password
+              </label>
+              <Link
+                to="/forgot-password"
+                className="text-xs font-semibold text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
+              >
+                Forgot Password?
+              </Link>
+            </div>
             <div className="relative group">
-              <Lock className="absolute left-3.5 top-3.5 w-5 h-5 text-slate-400 dark:text-slate-500 group-focus-within:text-blue-500 transition-colors" />
+              <Lock className="absolute left-3.5 top-3.5 w-5 h-5 text-slate-400 dark:text-slate-550 group-focus-within:text-blue-500 transition-colors" />
               <input
                 type="password"
                 placeholder="••••••••"
