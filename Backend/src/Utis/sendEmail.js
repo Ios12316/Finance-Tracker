@@ -21,13 +21,15 @@ const sendEmail = async (options) => {
     return { success: true, logged: true };
   }
 
+  const pass = process.env.SMTP_PASS ? process.env.SMTP_PASS.replace(/\s+/g, "") : "";
+
   const transporter = nodemailer.createTransport({
     host: host,
     port: parseInt(process.env.SMTP_PORT, 10),
     secure: parseInt(process.env.SMTP_PORT, 10) === 465, // true for 465, false for other ports
     auth: {
       user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      pass: pass,
     },
   });
 
