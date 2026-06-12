@@ -110,7 +110,7 @@ export const forgotPassword = async (req, res) => {
         await user.save();
 
         // Create reset URL pointing to frontend
-        const origin = req.headers.origin || process.env.FRONTEND_URL || "https://iosledger.vercel.app";
+        const origin = process.env.CLIENT_URL || req.headers.origin || process.env.FRONTEND_URL || "https://iosledger.vercel.app";
         const resetUrl = `${origin}/reset-password/${resetToken}`;
 
         const message = `You are receiving this email because you (or someone else) requested a password reset for your account on IOS Ledger.

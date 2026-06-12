@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import splashImg from "../assets/splash.png";
+import splashImg from "../assets/Imageios.jpeg";
 
 export default function SplashLoader() {
   return (
