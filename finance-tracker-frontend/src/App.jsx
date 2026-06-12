@@ -12,6 +12,7 @@ import NotificationContainer from "./components/NotificationContainer";
 import SplashLoader from "./components/SplashLoader";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import Support from "./pages/Support";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -46,6 +47,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password/:token" element={<ResetPassword />} />
+          <Route path="/support" element={<Support />} />
           <Route
             path="/dashboard"
             element={

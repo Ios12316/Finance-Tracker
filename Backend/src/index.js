@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import connectDB from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import transactionRoutes from "./routes/transactionRoutes.js";
+import supportRoutes from "./routes/supportRoutes.js";
 
 dotenv.config();
 
@@ -51,6 +52,7 @@ app.use(cors({
 }));
 app.use("/api/user", authRoutes);
 app.use("/api/transactions", transactionRoutes);
+app.use("/api/support", supportRoutes);
 
 app.get("/", (req, res) => {
     res.send("IOS Ledger API is running...");

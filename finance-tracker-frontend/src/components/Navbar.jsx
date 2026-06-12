@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Sun, Moon, Menu, X, Wallet, LogOut, LayoutDashboard, UserPlus, LogIn, Home } from "lucide-react";
+import { Sun, Moon, Menu, X, Wallet, LogOut, LayoutDashboard, UserPlus, LogIn, Home, HelpCircle } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useNotificationStore } from "../store/useNotificationStore";
 
@@ -81,6 +81,11 @@ export default function Navbar() {
               Home
             </a>
 
+            <Link to="/support" className={linkClass("/support")}>
+              <HelpCircle className="w-4 h-4" />
+              Help
+            </Link>
+
             {user ? (
               <>
                 <Link to="/dashboard" className={linkClass("/dashboard")}>
@@ -153,6 +158,15 @@ export default function Navbar() {
             <Home className="w-4.5 h-4.5" />
             Home
           </a>
+
+          <Link
+            to="/support"
+            onClick={() => setIsOpen(false)}
+            className={mobileLinkClass("/support")}
+          >
+            <HelpCircle className="w-4.5 h-4.5" />
+            Help
+          </Link>
 
           {user ? (
             <>

@@ -32,6 +32,9 @@ export default function Footer() {
                 <a href="/dashboard" className="hover:text-white transition-colors duration-150">Dashboard</a>
               </li>
               <li>
+                <a href="/support" className="hover:text-white transition-colors duration-150">Help & Support</a>
+              </li>
+              <li>
                 <a href="/login" className="hover:text-white transition-colors duration-150">Login</a>
               </li>
               <li>
