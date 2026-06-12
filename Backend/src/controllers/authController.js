@@ -11,13 +11,14 @@ export const registerUser = async (req, res) => {
         const { name, email, password } = req.body;
         const { error } = userValidation.validate({ name, email, password });
         if (error) return res.status(400).json({ message: error.details[0].message });
-        const existingUser = await User.findOne({ email });
+        const normalizedEmail = email ? email.toLowerCase().trim() : "";
+        const existingUser = await User.findOne({ email: normalizedEmail });
         if (existingUser) {
             return res.status(400).json({ message: "User already exists" });
         }
         const user = await User.create({
             name,
-            email,
+            email: normalizedEmail,
             password
         });
         const token = generateToken(user._id);
@@ -45,7 +46,8 @@ export const loginUser = async (req, res) => {
         const { email, password } = req.body;
         const { error } = loginValidation.validate({ email, password });
         if (error) return res.status(400).json({ message: error.details[0].message });
-        const user = await User.findOne({ email });
+        const normalizedEmail = email ? email.toLowerCase().trim() : "";
+        const user = await User.findOne({ email: normalizedEmail });
         if (!user) {
             return res.status(401).json({ message: "Invalid Email" });
         }
@@ -94,7 +96,8 @@ export const forgotPassword = async (req, res) => {
             return res.status(400).json({ message: "Please provide an email address" });
         }
 
-        const user = await User.findOne({ email });
+        const normalizedEmail = email.toLowerCase().trim();
+        const user = await User.findOne({ email: normalizedEmail });
         if (!user) {
             return res.status(404).json({ message: "No user found with that email address" });
         }
